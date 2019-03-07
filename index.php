@@ -1,0 +1,33 @@
+<?php
+include_once('./tools/getAllUsers.php');
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gestion d'utilisateurs</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="tools/user_AJAX.js"></script>
+</head>
+<body>
+    <section>
+        
+        NOM:<input type="text" name="nom" id="name"><br>
+        PRENOM:<input type="text" name="prenom" id="surname"><br>
+        EMAIL:<input type="text" name="email" id="email"><br>
+        <input onclick="add()" type="button" value="add">
+        
+    </section>
+
+    <h2>Liste des utilisateurs:</h2>
+<?php foreach ($users as $key => $user): ?>
+    <p><i class="fas fa-user"></i> <?= $user['nom']?>  <?= $user['prenom']?></p>
+    <input onclick="look(<?= $user['id']?>)" type="button" value="see"> 
+<?php endforeach ?>
+    
+</body>
+</html>
