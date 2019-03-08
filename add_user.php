@@ -14,3 +14,4 @@ $email =$_POST['email'];
    $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    $request = $connec->prepare("INSERT INTO users (nom, prenom, email) VALUES ('$name','$surname','$email')");
     $request->execute();
+

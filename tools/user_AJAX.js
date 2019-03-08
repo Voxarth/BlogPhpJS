@@ -28,7 +28,17 @@ function add(){
      
       xhr.onreadystatechange = function(){
           if (xhr.readyState == 4 && xhr.status == 200) {
-         //   alert ("C'est bon!")
+            
+            var user = JSON.parse(xhr.responseText);
+
+            document.getElementById("name").value = user.nom
+            document.getElementById("surname").value = user.prenom
+            document.getElementById("email").value = user.email
+
+            document.getElementById("id").value = user.id;
+
+
+
           }
           else{
          //   alert ("J'ai glissé chef !")
@@ -38,11 +48,21 @@ function add(){
 
     var	data=new FormData();	
         data.append('id',id);	
-        xhr.open('POST','getUser.php');	
+        xhr.open('POST','tools/getUser.php');	
         xhr.send(data);
-
     }
 
+
+    function up(id){
+        
+        var id=id;
+        var xhr = new XMLHttpRequest();
+
+       var data=new FormData();
+       data.append('id',id);
+       xhr.open('POST','./tools/updateUser.php');
+       xhr.send(data);
+    }
         
     
 

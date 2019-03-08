@@ -14,20 +14,33 @@ include_once('./tools/getAllUsers.php');
     <script src="tools/user_AJAX.js"></script>
 </head>
 <body>
-    <section>
-        
+    <section id="form">
+        <input type="hidden" id="user_id">
         NOM:<input type="text" name="nom" id="name"><br>
         PRENOM:<input type="text" name="prenom" id="surname"><br>
         EMAIL:<input type="text" name="email" id="email"><br>
         <input onclick="add()" type="button" value="add">
         
     </section>
-
+<section>
     <h2>Liste des utilisateurs:</h2>
+
+<div  id="<?= $user->id ?>">
+
 <?php foreach ($users as $key => $user): ?>
-    <p><i class="fas fa-user"></i> <?= $user['nom']?>  <?= $user['prenom']?></p>
-    <input onclick="look(<?= $user['id']?>)" type="button" value="see"> 
-<?php endforeach ?>
+<div>
     
+    <i class="fas fa-user"></i> 
+    <?= $user['nom']?>  <?= $user['prenom']?></div>
+    <input onclick="look(<?= $user['id']?>)" type="button" value="Look">
+    <input onclick="up(<?= $user['id']?>)" type="button" value="Update">
+    <input onclick="del(<?= $user['id']?>)" type="button" value="Delete"> 
+
+
+</div>
+<?php endforeach ?>
+
+</section>
+
 </body>
 </html>
