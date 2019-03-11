@@ -4,7 +4,26 @@ function add(){
      
       xhr.onreadystatechange = function(){
           if (xhr.readyState == 4 && xhr.status == 200) {
-         //   alert ("C'est bon!")
+
+            var users =     document.getElementById("users");
+            var node_user = document.createElement("div");
+            var user = JSON.parse(xhr.responseText);
+
+
+            node_user.innerHTML = 
+
+
+
+
+
+
+
+
+
+
+
+
+
           }
           else{
          //   alert ("J'ai glissé chef !")
@@ -12,11 +31,11 @@ function add(){
       };
     
 
-    var	data=new FormData();	
+    var	data=new FormData();
+        xhr.open('POST','add_user.php');
         data.append('nom',	document.getElementById('name').value);	
         data.append('prenom', document.getElementById('surname').value);
-        data.append('email', document.getElementById('email').value);
-        xhr.open('POST','add_user.php');	
+        data.append('email', document.getElementById('email').value);	
         xhr.send(data);
 
     }
@@ -58,8 +77,14 @@ function add(){
         var id=id;
         var xhr = new XMLHttpRequest();
 
+
+   
+
        var data=new FormData();
        data.append('id',id);
+       data.append('nom',	document.getElementById('name').value);	
+        data.append('prenom', document.getElementById('surname').value);
+        data.append('email', document.getElementById('email').value);
        xhr.open('POST','./tools/updateUser.php');
        xhr.send(data);
     }

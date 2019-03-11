@@ -25,21 +25,21 @@ include_once('./tools/getAllUsers.php');
 <section>
     <h2>Liste des utilisateurs:</h2>
 
-<div  id="<?= $user->id ?>">
+<div  id="users">
 
 <?php foreach ($users as $key => $user): ?>
-<div>
     
+    <div id="<?= $user['id']?>">
     <i class="fas fa-user"></i> 
-    <?= $user['nom']?>  <?= $user['prenom']?></div>
+    <?= $user['nom']?>  <?= $user['prenom']?>
     <input onclick="look(<?= $user['id']?>)" type="button" value="Look">
     <input onclick="up(<?= $user['id']?>)" type="button" value="Update">
     <input onclick="del(<?= $user['id']?>)" type="button" value="Delete"> 
+    </div>
 
-
-</div>
 <?php endforeach ?>
 
+</div>
 </section>
 
 </body>
