@@ -1,5 +1,15 @@
 <?php
 
+require_once ('tools/Response.php');
+require_once ('tools/ResponseSuccess.php');
+require_once ('tools/ResponseFail.php');
+
+//$createObjet =new ResponseFail (false,"reponse non correct");
+//echo json_encode($createObjet);
+
+$createObject =new ResponseSuccess (true,"response correct",null);
+echo json_encode($createObject);
+
 /* Definition des données 
    ====================== */
    
@@ -15,3 +25,4 @@ $email =$_POST['email'];
    $request = $connec->prepare("INSERT INTO users (nom, prenom, email) VALUES ('$name','$surname','$email')");
     $request->execute();
 
+?>

@@ -5,12 +5,12 @@ function add(){
       xhr.onreadystatechange = function(){
           if (xhr.readyState == 4 && xhr.status == 200) {
 
-            var users =     document.getElementById("users");
-            var node_user = document.createElement("div");
-            var user = JSON.parse(xhr.responseText);
+            //var users =     document.getElementById("users");
+            //var node_user = document.createElement("div");
+            //var user = JSON.parse(xhr.responseText);
 
 
-            node_user.innerHTML = 
+            
 
 
 
@@ -54,7 +54,7 @@ function add(){
             document.getElementById("surname").value = user.prenom
             document.getElementById("email").value = user.email
 
-            document.getElementById("id").value = user.id;
+            //document.getElementById("id").value = user.id;
 
 
 
